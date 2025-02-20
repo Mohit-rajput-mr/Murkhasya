@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import sound from '../../assets/mixkit-facility-alarm-sound-999.wav';
 
 const alarmSound = new Audio(sound);
-alarmSound.loop = true; 
+alarmSound.loop = true; // Ensures continuous playing
 
 const TaskItem = ({ task, updateTask, deleteTask }) => {
   const [timeLeft, setTimeLeft] = useState('');
@@ -11,25 +11,21 @@ const TaskItem = ({ task, updateTask, deleteTask }) => {
   const [updatedName, setUpdatedName] = useState(task.name);
   const [updatedTime, setUpdatedTime] = useState(task.reminderTime);
   const [alarmEnabled, setAlarmEnabled] = useState(true);
-  const [alarmPlaying, setAlarmPlaying] = useState(task.alarmPlayed || false);
+  const [alarmPlaying, setAlarmPlaying] = useState(task.alarmPlayed || false); // Preserve state
 
   useEffect(() => {
-    if (Notification.permission !== 'granted') {
-      Notification.requestPermission();
-    }
-
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const taskTime = new Date(task.reminderTime).getTime();
       const diff = taskTime - now;
 
       if (diff <= 0) {
+        
         if (!task.alarmPlayed && alarmEnabled) {
           toast.info(`Reminder: ${task.name}`);
-          new Notification('Task Reminder', { body: task.name });
           alarmSound.play().catch(err => console.error('Error playing alarm:', err));
           setAlarmPlaying(true);
-          updateTask(task.id, { alarmPlayed: true });
+          updateTask(task.id, { alarmPlayed: true }); 
         }
         setTimeLeft('Time Over');
       } else {
@@ -45,9 +41,9 @@ const TaskItem = ({ task, updateTask, deleteTask }) => {
 
   const stopAlarm = () => {
     alarmSound.pause();
-    alarmSound.currentTime = 0;
+    alarmSound.currentTime = 0; 
     setAlarmPlaying(false);
-    updateTask(task.id, { alarmPlayed: false });
+    updateTask(task.id, { alarmPlayed: false }); // Reset for future reminders
   };
 
   const toggleAlarm = () => {
