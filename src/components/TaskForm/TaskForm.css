@@ -1,0 +1,15 @@
+.task-form {
+  text-align: center;
+  padding: 10px;
+}
+
+.task-form h2 {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.task-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

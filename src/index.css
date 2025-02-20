@@ -1,0 +1,145 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffc343, #ffa13d);
+  padding: 20px;
+}
+
+
+.app {
+  width: 90%;
+  max-width: 500px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  display: inline-block;
+}
+
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ff4d00;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.task-form {
+  margin-bottom: 20px;
+}
+
+.task-form input,
+.task-form select,
+.task-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.task-form input:focus,
+.task-form select:focus {
+  border-color: #ff0000;
+}
+
+.task-form button {
+  background: #ee0000;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background: #e91e63;
+}
+
+
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task-item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  gap: 10px;
+}
+
+.task-item:hover {
+  transform: scale(1.02);
+}
+
+.task-item p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 📌 Buttons */
+.task-item button {
+  background: #ff0000;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-item button:hover {
+  background: #e91e63;
+}
+
+/* 📌 Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-item p {
+    margin-bottom: 10px;
+  }
+}
+
+
