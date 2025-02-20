@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import sound from '../../assets/mixkit-facility-alarm-sound-999.wav';
 
 const alarmSound = new Audio(sound);
-alarmSound.loop = true; // Ensures continuous playing
+alarmSound.loop = true; 
 
 const TaskItem = ({ task, updateTask, deleteTask }) => {
   const [timeLeft, setTimeLeft] = useState('');
